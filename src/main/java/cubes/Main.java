@@ -1,66 +1,68 @@
 package cubes;
 
-public class Main {
+// 634 bytes, 594 chars when minified
+class Main {
     public static void main(String[] y) {
         int[] a = {1,2,3,4,5,6,7};
+
+        char b = '╱';
+        char d = '│';
+        char e =  ' ';
+        char f = '█';
+        char g = '─';
+
         for (int i:a) {
-
-            { // this block prints the line containing the second horizontal line
-                x(i + 1, ' ');
-                x(1, '█');
-                x(i * 4, '─');
-                x(1, '█');
+                x(i + 1, e);
+                x(1, f);
+                x(i * 4, g);
+                x(1, f);
                 z();
-            }
 
-            // this block prints the diagonals and verticals until second horizontal line
+
             for (int j = 0; j < i; j++) {
-                x(i-j, ' ');
-                x(1,'╱');
-                x(i * 4, ' ');
-                x(1,'╱');
-                x(j, ' ');
-                x(1,'│');
+                x(i-j, e);
+                x(1,b);
+                x(i * 4, e);
+                x(1,b);
+                x(j, e);
+                x(1,d);
                 z();
             }
 
-            { // this block prints the line containing the second horizontal line
-                x(1, '█');
-                x(i * 4, '─');
-                x(1, '█');
-                x(i, ' ');
-                x(1, '│');
+                x(1, f);
+                x(i * 4, g);
+                x(1, f);
+                x(i, e);
+                x(1, d);
                 z();
-            }
 
-            // this block prints the verticals until the bottom corner is reached
+
             for (int j = 0; j < i;j++) {
-                x(1, '│');
-                x(i * 4, ' ');
-                x(1, '│');
-                x(i, ' ');
-                x(1, j == i - 1 ? '█':'│');
+                x(1, d);
+                x(i * 4, e);
+                x(1, d);
+                x(i, e);
+                x(1, j == i - 1 ? f:d);
                 z();
             }
 
-            // this block prints the diagonals and verticals until third horizontal line
             for (int j = 0; j < i; j++) {
-                x(1,'│');
-                x(i * 4, ' ');
-                x(1,'│');
-                x(i-j-1, ' ');
-                x(1,'╱');
-                x(j, ' ');
+                x(1,d);
+                x(i * 4, e);
+                x(1,d);
+                x(i-j-1, e);
+                x(1,b);
+                x(j, e);
                 z();
             }
 
-            { // this block prints the line containing the third horizontal line
-                x(1, '█');
-                x(i * 4, '─');
-                x(1, '█');
+
+                x(1, f);
+                x(i * 4, g);
+                x(1, f);
                 z();
                 z();
-            }
+
         }
     }
     static void x(int i,char c) {
@@ -69,6 +71,7 @@ public class Main {
         }
     }
     static void z() {
-        System.out.println();
+        x(1,'\n');
     }
 }
+
